@@ -121,6 +121,16 @@ public class Base {
         return true;
     }
 
+    public boolean isElementInvisible(WebElement element) {
+        try {
+            webDriverWait.until(ExpectedConditions.invisibilityOf(element));
+        } catch (TimeoutException e) {
+            return false;
+        }
+
+        return true;
+    }
+
     public void waitForInvisibilityOfElement(WebElement element) {
         fluentWait.until(ExpectedConditions.invisibilityOf(element));
     }

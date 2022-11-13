@@ -8,9 +8,11 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "step_definitions",
-        tags = "@Smoke",
+        tags = "@Smoke and @Registration",
         plugin = {"pretty", "html:target/cucumber-html-report.html"},
-        monochrome = true
+        monochrome = true,
+        dryRun = false
 )
+
 public class SmokeRunner {
 }

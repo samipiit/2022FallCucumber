@@ -19,6 +19,9 @@ public class Homepage extends Base {
     @FindBy (css = "#rightPanel p[class='error']")
     public WebElement errorMessage;
 
+    @FindBy (xpath = "//a[contains(text(), 'Register')]")
+    public WebElement registerAccountButton;
+
     public Homepage() {
         PageFactory.initElements(driver, this);
     }
@@ -41,6 +44,12 @@ public class Homepage extends Base {
         inputUsername(username);
         inputPassword(password);
         return clickSubmitLogin();
+    }
+
+    public RegistrationPage clickRegisterNewAccountButton() {
+        clickOnElement(registerAccountButton);
+
+        return new RegistrationPage();
     }
 
 }
